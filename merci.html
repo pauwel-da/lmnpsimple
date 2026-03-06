@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci – LMNP Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1C3557;
+      --anthracite: #3C4554;
+      --grey:       #6B7280;
+      --grey-light: #F9FAFB;
+      --border:     #E5E7EB;
+      --white:      #FFFFFF;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--anthracite);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 64px;
+    }
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 52px; width: auto; }
+
+    /* ── MAIN ────────────────────────────────────── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+    }
+
+    .card {
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      background: #D1FAE5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 32px;
+      color: #059669;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: #EFF6FF;
+      padding: 4px 11px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: -0.6px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .info-box {
+      background: var(--grey-light);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-box ul li {
+      font-size: 14.5px;
+      color: var(--anthracite);
+      line-height: 1.7;
+      padding: 5px 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    .info-box ul li .dot {
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .back-link {
+      font-size: 14px;
+      color: var(--grey);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--blue); }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: #9CA3AF;
+    }
+    footer a {
+      color: var(--grey);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="lmnpsimple.png" alt="LMNP Simple">
+    </a>
+  </div>
+</nav>
+
+<main>
+  <div class="card">
+
+    <div class="check-circle">✓</div>
+
+    <div class="eyebrow">Early adopter</div>
+    <h1>Merci pour votre confiance.</h1>
+    <p class="subtitle">
+      Votre pré-commande est confirmée. Vous faites partie des premiers utilisateurs de LMNP Simple — et nous vous en remercions sincèrement.
+    </p>
+
+    <div class="info-box">
+      <ul>
+        <li><span class="dot">→</span> Vous serez notifié par email dès l'ouverture de la plateforme, avant le 1er avril 2026.</li>
+        <li><span class="dot">→</span> Votre accès sera activé en priorité, avant la mise en vente au public.</li>
+        <li><span class="dot">→</span> Pour toute question : <a href="mailto:contact@lmnpsimple.fr">contact@lmnpsimple.fr</a></li>
+      </ul>
+    </div>
+
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+
+  </div>
+</main>
+
+<footer>
+  <p>LMNP Simple · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a></p>
+</footer>
+
+</body>
+</html>

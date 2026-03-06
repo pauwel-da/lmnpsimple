@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales – LMNP Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1C3557;
+      --anthracite: #3C4554;
+      --grey:       #6B7280;
+      --grey-light: #F9FAFB;
+      --border:     #E5E7EB;
+      --white:      #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--anthracite);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 64px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo img { height: 52px; width: auto; }
+
+    /* ── CONTENT ─────────────────────────────────── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    .page-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: #EFF6FF;
+      padding: 4px 11px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .page-intro {
+      font-size: 15px;
+      color: var(--grey);
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ml-section {
+      margin-bottom: 40px;
+    }
+
+    .ml-section h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 16px;
+    }
+
+    .ml-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .ml-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ml-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .ml-table td {
+      padding: 12px 0;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .ml-table td:first-child {
+      width: 44%;
+      color: var(--grey);
+      font-weight: 500;
+      padding-right: 16px;
+    }
+
+    .ml-table td:last-child {
+      color: var(--anthracite);
+      font-weight: 400;
+    }
+
+    .ml-pending {
+      color: #9CA3AF;
+      font-style: italic;
+    }
+
+    .ml-note {
+      font-size: 13.5px;
+      color: var(--grey);
+      background: var(--grey-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 12px;
+      line-height: 1.65;
+    }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: #9CA3AF;
+      line-height: 1.7;
+    }
+    footer a {
+      color: var(--grey);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="lmnpsimple.png" alt="LMNP Simple">
+    </a>
+  </div>
+</nav>
+
+<!-- ── CONTENT ───────────────────────────────────── -->
+<div class="page">
+
+  <div class="page-eyebrow">Informations légales</div>
+  <h1>Mentions légales</h1>
+  <p class="page-intro">Conformément aux dispositions de la loi n°2004-575 du 21 juin 2004 pour la confiance en l'économie numérique (LCEN).</p>
+
+  <!-- ÉDITEUR -->
+  <div class="ml-section">
+    <h2>Éditeur du site</h2>
+    <table class="ml-table">
+      <tr>
+        <td>Raison sociale</td>
+        <td>LMNPSIMPLE.FR <span class="ml-pending">(en cours d'enregistrement)</span></td>
+      </tr>
+      <tr>
+        <td>Forme juridique</td>
+        <td>Société par Actions Simplifiée (SAS)</td>
+      </tr>
+      <tr>
+        <td>Siège social</td>
+        <td>64 rue Waldeck Rousseau<br>69006 Lyon, France</td>
+      </tr>
+      <tr>
+        <td>Numéro SIREN</td>
+        <td><span class="ml-pending">En cours d'attribution</span></td>
+      </tr>
+      <tr>
+        <td>Email de contact</td>
+        <td><a href="mailto:contact@lmnpsimple.fr">contact@lmnpsimple.fr</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DIRECTEUR DE PUBLICATION -->
+  <div class="ml-section">
+    <h2>Directeur de la publication</h2>
+    <table class="ml-table">
+      <tr>
+        <td>Directeur de publication</td>
+        <td><span class="ml-pending">En cours de définition</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- HÉBERGEMENT -->
+  <div class="ml-section">
+    <h2>Hébergement</h2>
+    <table class="ml-table">
+      <tr>
+        <td>Hébergeur</td>
+        <td><span class="ml-pending">En cours de définition</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DONNÉES PERSONNELLES -->
+  <div class="ml-section">
+    <h2>Données personnelles</h2>
+    <p style="font-size:15px; color:var(--anthracite); line-height:1.7;">
+      Les données saisies sur LMNP Simple (données fiscales, coordonnées) sont utilisées exclusivement pour la génération de vos documents fiscaux. Elles ne sont pas transmises à des tiers. Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données en écrivant à <a href="mailto:contact@lmnpsimple.fr">contact@lmnpsimple.fr</a>.
+    </p>
+  </div>
+
+  <!-- AVERTISSEMENT -->
+  <div class="ml-section">
+    <h2>Avertissement</h2>
+    <p class="ml-note">
+      LMNP Simple est un outil d'aide à la génération de documents fiscaux. Il ne constitue pas un conseil fiscal ou juridique au sens de la loi. Les documents générés sont fournis à titre indicatif. L'utilisateur reste seul responsable de l'exactitude des données saisies et du dépôt de sa déclaration auprès de l'administration fiscale.
+    </p>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ────────────────────────────────────── -->
+<footer>
+  <p>
+    LMNP Simple · Outil fiscal en libre-service<br>
+    <a href="index.html">← Retour à l'accueil</a>
+    &nbsp;·&nbsp; <a href="cgv.html">CGV</a>
+  </p>
+</footer>
+
+</body>
+</html>
