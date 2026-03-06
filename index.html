@@ -683,16 +683,21 @@
 
     /* ── DOCUMENT PREVIEW ───────────────────────── */
     .preview-section { background: #F3F4F6; }
-    .preview-wrap {
-      position: relative;
-      max-width: 660px;
+    .previews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
       margin: 44px auto 0;
+    }
+    .preview-card {
+      position: relative;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
     }
     .preview-doc {
-      filter: blur(2.5px);
+      filter: blur(2px);
       user-select: none;
       pointer-events: none;
       background: white;
@@ -701,13 +706,13 @@
     .preview-gradient {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 180px;
+      height: 130px;
       background: linear-gradient(to bottom, transparent, #F3F4F6);
       z-index: 1;
     }
     .preview-label {
       position: absolute;
-      bottom: 24px;
+      bottom: 14px;
       left: 0; right: 0;
       text-align: center;
       z-index: 2;
@@ -717,12 +722,15 @@
       background: white;
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 7px 18px;
-      font-size: 13px;
+      padding: 5px 14px;
+      font-size: 12px;
       color: var(--grey);
-      font-weight: 500;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
       font-family: 'Inter', sans-serif;
+    }
+    @media (max-width: 640px) {
+      .previews-grid { grid-template-columns: 1fr; }
     }
     /* Mock form */
     .mock-header {
@@ -956,127 +964,123 @@
   <div class="container" style="text-align:center;">
     <div class="section-eyebrow">Ce que vous obtenez</div>
     <h2 class="section-title">De vrais documents fiscaux.</h2>
-    <p class="section-sub">Formulaire 2031, annexes 2033, report 2042-C Pro — générés automatiquement à partir de vos données.</p>
+    <p class="section-sub" style="margin:0 auto; text-align:center;">Générés automatiquement à partir de vos données.</p>
 
-    <div class="preview-wrap">
-      <div class="preview-doc">
+    <div class="previews-grid">
 
-        <!-- HEADER -->
-        <div class="mock-header">
-          <div>
-            <div class="mock-header-org">Direction générale des finances publiques</div>
-            <div class="mock-header-title">REVENUS INDUSTRIELS ET COMMERCIAUX<br>Régime réel simplifié — Location meublée</div>
+      <!-- CARTE 1 : 2031 -->
+      <div class="preview-card">
+        <div class="preview-doc">
+          <div class="mock-header">
+            <div>
+              <div class="mock-header-org">Finances publiques</div>
+              <div class="mock-header-title">Revenus industriels<br>et commerciaux</div>
+            </div>
+            <div>
+              <div class="mock-header-num">2031</div>
+              <div class="mock-header-year">2025</div>
+            </div>
           </div>
-          <div>
-            <div class="mock-header-num">2031</div>
-            <div class="mock-header-year">Exercice 2025</div>
+          <div class="mock-section-title">Identification</div>
+          <table class="mock-table">
+            <tr><td class="c-code">01</td><td class="c-label">Déclarant</td><td class="c-val">████████</td></tr>
+            <tr><td class="c-code">03</td><td class="c-label">Adresse du bien</td><td class="c-val">████████</td></tr>
+            <tr><td class="c-code">05</td><td class="c-label">Activité</td><td class="c-val">Location meublée</td></tr>
+          </table>
+          <div class="mock-section-title">Résultats</div>
+          <table class="mock-table">
+            <tr><td class="c-code">RA</td><td class="c-label">Recettes brutes</td><td class="c-val">██ ███ €</td></tr>
+            <tr><td class="c-code">RB</td><td class="c-label">Charges externes</td><td class="c-val">█ ███ €</td></tr>
+            <tr><td class="c-code">RC</td><td class="c-label">Amortissements</td><td class="c-val">██ ███ €</td></tr>
+            <tr><td class="c-code">RD</td><td class="c-label">Intérêts emprunt</td><td class="c-val">█ ███ €</td></tr>
+            <tr class="row-total"><td class="c-code">RE</td><td class="c-label">Résultat fiscal</td><td class="c-val">− ██ ███ €</td></tr>
+          </table>
+          <div class="mock-footer-bar">
+            <span style="color:#9CA3AF;">LMNP Simple · 2026</span>
+            <span style="color:#003189;font-weight:700;">✓ Vérifié</span>
           </div>
         </div>
-
-        <!-- IDENTIFICATION -->
-        <div class="mock-section-title">Identification</div>
-        <table class="mock-table">
-          <tr>
-            <td class="c-code">01</td>
-            <td class="c-label">Désignation — Nom et prénom du déclarant</td>
-            <td class="c-val">████████████████</td>
-          </tr>
-          <tr>
-            <td class="c-code">03</td>
-            <td class="c-label">Adresse du bien loué</td>
-            <td class="c-val">███████████████████</td>
-          </tr>
-          <tr>
-            <td class="c-code">05</td>
-            <td class="c-label">Activité exercée</td>
-            <td class="c-val">Location meublée</td>
-          </tr>
-        </table>
-
-        <!-- RÉSULTATS 2031 -->
-        <div class="mock-section-title">Résultats — Liasse 2031</div>
-        <table class="mock-table">
-          <tr>
-            <td class="c-code">RA</td>
-            <td class="c-label">Recettes brutes hors taxes</td>
-            <td class="c-val">██ ███ €</td>
-          </tr>
-          <tr>
-            <td class="c-code">RB</td>
-            <td class="c-label">Achats et charges externes</td>
-            <td class="c-val">█ ███ €</td>
-          </tr>
-          <tr>
-            <td class="c-code">RC</td>
-            <td class="c-label">Dotations aux amortissements</td>
-            <td class="c-val">██ ███ €</td>
-          </tr>
-          <tr>
-            <td class="c-code">RD</td>
-            <td class="c-label">Intérêts et charges financières</td>
-            <td class="c-val">█ ███ €</td>
-          </tr>
-          <tr class="row-total">
-            <td class="c-code">RE</td>
-            <td class="c-label">Résultat fiscal — déficit reportable</td>
-            <td class="c-val">− ██ ███ €</td>
-          </tr>
-        </table>
-
-        <!-- ANNEXE 2033 -->
-        <div class="mock-section-title">Annexe 2033-B — Compte de résultat simplifié</div>
-        <table class="mock-table">
-          <tr>
-            <td class="c-code">AA</td>
-            <td class="c-label">Immobilisations corporelles brutes</td>
-            <td class="c-val">███ ███ €</td>
-          </tr>
-          <tr>
-            <td class="c-code">AB</td>
-            <td class="c-label">Amortissements cumulés</td>
-            <td class="c-val">− ██ ███ €</td>
-          </tr>
-          <tr>
-            <td class="c-code">AC</td>
-            <td class="c-label">Valeur nette comptable du bien</td>
-            <td class="c-val">███ ███ €</td>
-          </tr>
-          <tr class="row-total">
-            <td class="c-code">BA</td>
-            <td class="c-label">Total actif net</td>
-            <td class="c-val">███ ███ €</td>
-          </tr>
-        </table>
-
-        <!-- REPORT 2042 -->
-        <div class="mock-section-title">Report — Formulaire 2042-C Pro</div>
-        <table class="mock-table">
-          <tr>
-            <td class="c-code">5NK</td>
-            <td class="c-label">Locations meublées non professionnelles — déficit de l'année</td>
-            <td class="c-val">██ ███ €</td>
-          </tr>
-          <tr>
-            <td class="c-code">5GA</td>
-            <td class="c-label">Déficits antérieurs non encore imputés</td>
-            <td class="c-val">███ €</td>
-          </tr>
-        </table>
-
-        <!-- FOOTER BAR -->
-        <div class="mock-footer-bar">
-          <span style="color:#9CA3AF;">Généré le ██/██/2026 · LMNP Simple</span>
-          <span style="color:#003189; font-weight:700;">✓ Contrôles de cohérence effectués</span>
-        </div>
-
-      </div><!-- /preview-doc -->
-
-      <div class="preview-gradient"></div>
-      <div class="preview-label">
-        <span class="preview-badge">Aperçu · Formulaire 2031 + annexes 2033 + report 2042-C Pro</span>
+        <div class="preview-gradient"></div>
+        <div class="preview-label"><span class="preview-badge">Formulaire 2031</span></div>
       </div>
-    </div><!-- /preview-wrap -->
 
+      <!-- CARTE 2 : 2033 -->
+      <div class="preview-card">
+        <div class="preview-doc">
+          <div class="mock-header">
+            <div>
+              <div class="mock-header-org">Finances publiques</div>
+              <div class="mock-header-title">Bilan et compte<br>de résultat simplifié</div>
+            </div>
+            <div>
+              <div class="mock-header-num">2033</div>
+              <div class="mock-header-year">2025</div>
+            </div>
+          </div>
+          <div class="mock-section-title">Bilan — Actif</div>
+          <table class="mock-table">
+            <tr><td class="c-code">AA</td><td class="c-label">Immobilisations brutes</td><td class="c-val">███ ███ €</td></tr>
+            <tr><td class="c-code">AB</td><td class="c-label">Amortissements cumulés</td><td class="c-val">− ██ ███ €</td></tr>
+            <tr class="row-total"><td class="c-code">AC</td><td class="c-label">Valeur nette</td><td class="c-val">███ ███ €</td></tr>
+          </table>
+          <div class="mock-section-title">Bilan — Passif</div>
+          <table class="mock-table">
+            <tr><td class="c-code">DA</td><td class="c-label">Capital</td><td class="c-val">███ ███ €</td></tr>
+            <tr><td class="c-code">DB</td><td class="c-label">Emprunts</td><td class="c-val">███ ███ €</td></tr>
+            <tr class="row-total"><td class="c-code">DZ</td><td class="c-label">Total passif</td><td class="c-val">███ ███ €</td></tr>
+          </table>
+          <div class="mock-section-title">Compte de résultat</div>
+          <table class="mock-table">
+            <tr><td class="c-code">FL</td><td class="c-label">Produits d'exploitation</td><td class="c-val">██ ███ €</td></tr>
+            <tr><td class="c-code">FM</td><td class="c-label">Charges d'exploitation</td><td class="c-val">██ ███ €</td></tr>
+            <tr class="row-total"><td class="c-code">FY</td><td class="c-label">Résultat net</td><td class="c-val">− ██ ███ €</td></tr>
+          </table>
+          <div class="mock-footer-bar">
+            <span style="color:#9CA3AF;">LMNP Simple · 2026</span>
+            <span style="color:#003189;font-weight:700;">✓ Vérifié</span>
+          </div>
+        </div>
+        <div class="preview-gradient"></div>
+        <div class="preview-label"><span class="preview-badge">Annexes 2033</span></div>
+      </div>
+
+      <!-- CARTE 3 : 2042-C Pro -->
+      <div class="preview-card">
+        <div class="preview-doc">
+          <div class="mock-header">
+            <div>
+              <div class="mock-header-org">Finances publiques</div>
+              <div class="mock-header-title">Déclaration complémentaire<br>des revenus</div>
+            </div>
+            <div>
+              <div class="mock-header-num" style="font-size:16px;margin-top:4px;">2042-C</div>
+              <div class="mock-header-year">Pro · 2025</div>
+            </div>
+          </div>
+          <div class="mock-section-title">Report LMNP — Résultats</div>
+          <table class="mock-table">
+            <tr><td class="c-code">5NA</td><td class="c-label">Bénéfices LMNP</td><td class="c-val">██ ███ €</td></tr>
+            <tr><td class="c-code">5NK</td><td class="c-label">Déficit LMNP</td><td class="c-val">██ ███ €</td></tr>
+          </table>
+          <div class="mock-section-title">Déficits antérieurs</div>
+          <table class="mock-table">
+            <tr><td class="c-code">5GA</td><td class="c-label">Déficits N-1</td><td class="c-val">████ €</td></tr>
+            <tr><td class="c-code">5GB</td><td class="c-label">Déficits N-2</td><td class="c-val">████ €</td></tr>
+            <tr><td class="c-code">5GC</td><td class="c-label">Déficits N-3</td><td class="c-val">████ €</td></tr>
+            <tr><td class="c-code">5GD</td><td class="c-label">Déficits N-4</td><td class="c-val">████ €</td></tr>
+            <tr><td class="c-code">5GE</td><td class="c-label">Déficits N-5</td><td class="c-val">████ €</td></tr>
+            <tr><td class="c-code">5GF</td><td class="c-label">Déficits N-6</td><td class="c-val">████ €</td></tr>
+          </table>
+          <div class="mock-footer-bar">
+            <span style="color:#9CA3AF;">LMNP Simple · 2026</span>
+            <span style="color:#003189;font-weight:700;">✓ Vérifié</span>
+          </div>
+        </div>
+        <div class="preview-gradient"></div>
+        <div class="preview-label"><span class="preview-badge">Report 2042-C Pro</span></div>
+      </div>
+
+    </div><!-- /previews-grid -->
   </div>
 </section>
 
