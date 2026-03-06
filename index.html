@@ -745,7 +745,7 @@
           <li><span class="scope-icon">✓</span> Régime réel simplifié (BIC)</li>
           <li><span class="scope-icon">✓</span> Biens détenus en nom propre</li>
           <li><span class="scope-icon">✓</span> 1 seul bien</li>
-          <li><span class="scope-icon">✓</span> Recettes annuelles &lt; 77&nbsp;700&nbsp;€</li>
+
           <li><span class="scope-icon">✓</span> Amortissements à calculer ou déjà connus</li>
         </ul>
       </div>
@@ -769,9 +769,9 @@
       <!-- État initial -->
       <div id="qualStart">
         <p class="qual-intro">Pas sûr(e) d'être dans le périmètre ?</p>
-        <p class="qual-intro-sub">Répondez à 4 questions pour le savoir.</p>
+        <p class="qual-intro-sub">Répondez à 5 questions pour le savoir.</p>
         <button class="btn btn-primary btn-lg" onclick="startQual()">Vérifier ma situation →</button>
-        <span class="qual-time">4 questions · moins de 30 secondes</span>
+        <span class="qual-time">5 questions · moins de 30 secondes</span>
       </div>
 
       <!-- Questions -->
@@ -807,7 +807,7 @@
       <div class="step">
         <div class="step-num">2</div>
         <h3>On calcule tout</h3>
-        <p>Résultat fiscal, liasse 2031&nbsp;/ 2033, report sur la 2042&#8209;C&nbsp;Pro. Chaque calcul est vérifié automatiquement.</p>
+        <p>Résultat fiscal, liasse 2031&nbsp;/ 2033, report sur la 2042&#8209;C&nbsp;Pro. Des contrôles automatiques de cohérence sont appliqués.</p>
       </div>
 
       <div class="step">
@@ -898,12 +898,12 @@
         <div class="pricing-was">au lieu de <s>89&nbsp;€ TTC</s> <span class="pricing-saving">−30&nbsp;€</span></div>
         <div class="pricing-period">Paiement unique · accès avant le 1er avril 2026</div>
         <ul class="pricing-features">
-          <li><span class="chk">✓</span> Génération complète de la liasse fiscale <small style="color:var(--grey);font-weight:400;">(opposable en cas de contrôle fiscal)</small></li>
+          <li><span class="chk">✓</span> Génération des documents fiscaux</li>
           <li><span class="chk">✓</span> Formulaires 2031 + annexes 2033</li>
           <li><span class="chk">✓</span> Report automatique sur 2042&#8209;C&nbsp;Pro</li>
           <li><span class="chk">✓</span> Vérification des calculs intégrée</li>
           <li><span class="chk">✓</span> Téléchargement PDF des documents</li>
-          <li><span class="chk">✓</span> Accès permanent à votre dossier</li>
+          <li><span class="chk">✓</span> Accès pendant 12 mois à votre dossier</li>
         </ul>
         <a href="#" class="btn btn-primary btn-lg btn-full">Rejoindre la bêta – 59&nbsp;€ TTC</a>
         <button onclick="openNotify()" class="btn btn-ghost btn-lg btn-full" style="margin-top:10px;">Être informé du lancement</button>
@@ -938,6 +938,7 @@
     Ce service ne constitue pas un conseil fiscal ou juridique.<br>
     <a href="mentions-legales.html" style="color:#9CA3AF; text-decoration:underline;">Mentions légales</a>
     &nbsp;·&nbsp; <a href="cgv.html" style="color:#9CA3AF; text-decoration:underline;">CGV</a>
+    &nbsp;·&nbsp; <a href="confidentialite.html" style="color:#9CA3AF; text-decoration:underline;">Confidentialité</a>
     &nbsp;·&nbsp; <span style="color:#9CA3AF;">Ce site n'utilise aucun cookie de suivi ni publicitaire.</span>
   </p>
 </footer>
@@ -992,11 +993,20 @@
       ]
     },
     {
-      text: 'Vos recettes annuelles de location meublée sont-elles inférieures à 77 700 € ?',
+      text: 'Vos recettes de location meublée dépassent-elles 23 000 € par an ?',
+      info: 'En dessous de 23 000 €, vous êtes nécessairement LMNP — le statut LMP ne peut pas s\'appliquer.',
       opts: [
-        { label: 'Oui', pass: true },
-        { label: 'Non', pass: false,
-          reason: 'Au-delà de 77 700 €, votre situation peut relever du LMP ou impliquer un régime plus complexe — hors périmètre de ce service.' }
+        { label: 'Non, moins de 23 000 €', pass: true },
+        { label: 'Oui, plus de 23 000 €', pass: true }
+      ]
+    },
+    {
+      text: 'Ces recettes représentent-elles plus de 50 % des revenus de votre foyer fiscal ?',
+      info: 'Le statut LMP (Loueur Meublé Professionnel) s\'applique si vos recettes LMNP dépassent 23 000 € ET représentent plus de 50 % des revenus de votre foyer. Dans ce cas, votre situation est hors périmètre.',
+      opts: [
+        { label: 'Non, moins de 50 %', pass: true },
+        { label: 'Oui, plus de 50 %', pass: false,
+          reason: 'Vous relevez du statut LMP (Loueur Meublé Professionnel). Ce statut implique des règles fiscales spécifiques — hors périmètre de ce service. Rapprochez-vous d\'un expert-comptable.' }
       ]
     }
   ];
