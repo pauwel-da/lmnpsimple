@@ -849,7 +849,7 @@
     <a class="logo" href="#">
       <img src="lmnpsimple.png" alt="LMNP Simple">
     </a>
-    <a href="https://buy.stripe.com/cNi4gzaqw0GE6WS6VR7kc00" class="btn btn-primary">Rejoindre la bêta – 59&nbsp;€</a>
+    <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" class="btn btn-primary">Rejoindre la bêta – 59&nbsp;€</a>
   </div>
 </nav>
 
@@ -860,7 +860,7 @@
     <h1>Votre déclaration LMNP simplifiée.</h1>
     <p>Fini les 300&nbsp;€ d'expert-comptable pour un cas standard. Saisissez vos données, obtenez vos documents fiscaux en quelques minutes — en totale autonomie.</p>
     <div class="hero-cta">
-      <a href="https://buy.stripe.com/cNi4gzaqw0GE6WS6VR7kc00" class="btn btn-primary btn-xl">Rejoindre la bêta – 59&nbsp;€ →</a>
+      <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" class="btn btn-primary btn-xl">Rejoindre la bêta – 59&nbsp;€ →</a>
       <button onclick="openNotify()" class="btn btn-ghost btn-xl">Être informé du lancement</button>
       <span class="hero-note">50 places · Accès avant le 1er avril 2026 · Prix public <s>89&nbsp;€&nbsp;TTC</s> · Paiement unique TTC</span>
     </div>
@@ -1169,7 +1169,7 @@
           <li><span class="chk">✓</span> Téléchargement PDF des documents</li>
           <li><span class="chk">✓</span> Accès pendant 12 mois à votre dossier</li>
         </ul>
-        <a href="https://buy.stripe.com/cNi4gzaqw0GE6WS6VR7kc00" class="btn btn-primary btn-lg btn-full">Rejoindre la bêta – 59&nbsp;€ TTC</a>
+        <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" class="btn btn-primary btn-lg btn-full">Rejoindre la bêta – 59&nbsp;€ TTC</a>
         <button onclick="openNotify()" class="btn btn-ghost btn-lg btn-full" style="margin-top:10px;">Être informé du lancement</button>
       </div>
     </div>
@@ -1219,8 +1219,19 @@
   }
   function submitNotify(e) {
     e.preventDefault();
+    const email = document.getElementById('notify-email').value;
+
+    // Affiche le succès immédiatement sans attendre la réponse
     document.getElementById('notify-form').hidden = true;
     document.getElementById('notify-success').hidden = false;
+
+    // Envoi en arrière-plan
+    fetch('https://script.google.com/macros/s/AKfycbwSJuhDlU4DTymYPnPviN0T4K2WHba6Xn-8xcMSb1I39SJBqPJkYZkFQntMSkOXg1ooXA/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    });
   }
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('notify-modal').addEventListener('click', function(e) {
@@ -1314,7 +1325,7 @@
       ? `<div class="qual-result-ok">
            <h3>✓ Ce service est fait pour vous.</h3>
            <p>Votre situation correspond au périmètre de LMNP Simple. Rejoignez la bêta et accédez au service avant le 1er avril 2026.</p>
-           <a href="https://buy.stripe.com/cNi4gzaqw0GE6WS6VR7kc00" class="btn btn-primary btn-lg">Rejoindre la bêta – 59&nbsp;€ →</a>
+           <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" class="btn btn-primary btn-lg">Rejoindre la bêta – 59&nbsp;€ →</a>
            <button class="qual-restart" onclick="restartQual()">Recommencer le questionnaire</button>
          </div>`
       : `<div class="qual-result-no">
