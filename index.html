@@ -1290,6 +1290,7 @@
   ];
 
   function startQual() {
+    sa_event('start_qualification');
     document.getElementById('qualStart').style.display = 'none';
     document.getElementById('qualQuestions').style.display = 'block';
     showStep(0);
