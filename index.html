@@ -252,6 +252,50 @@
     .hero-note s { color: #B0B8C4; }
     .hero-note strong { color: var(--anthracite); }
 
+    /* ── PILLARS ─────────────────────────────────── */
+    .pillars {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .pillars-grid {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .pillar {
+      padding: 28px 32px;
+      border-left: 1px solid var(--border);
+      text-align: center;
+    }
+    .pillar:first-child { border-left: none; }
+    .pillar-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    .pillar-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--grey);
+      margin-bottom: 6px;
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+    @media (max-width: 640px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar { border-left: none; border-top: 1px solid var(--border); }
+      .pillar:first-child { border-top: none; }
+    }
+
     /* ── SCOPE ───────────────────────────────────── */
     .scope { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .scope-grid {
@@ -869,6 +913,27 @@
     </div>
   </div>
 </section>
+
+<!-- ── PILLARS ───────────────────────────────────── -->
+<div class="pillars">
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-value">3 étapes</div>
+      <div class="pillar-label">Simple</div>
+      <div class="pillar-desc">Formulaire guidé. Aucune compétence comptable requise.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-value">59 € TTC</div>
+      <div class="pillar-label">Low-cost</div>
+      <div class="pillar-desc">Paiement unique. Vs. 300 à 600 € chez un expert-comptable.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-value">100 % autonome</div>
+      <div class="pillar-label">Sans intermédiaire</div>
+      <div class="pillar-desc">Vous générez vos documents vous-même, sans aucun tiers.</div>
+    </div>
+  </div>
+</div>
 
 <!-- ── SCOPE ─────────────────────────────────────── -->
 <section class="scope">
