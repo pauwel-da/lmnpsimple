@@ -9,6 +9,8 @@ import {
 // https://www.lmnpsimple.fr/formulaire/?paid=true
 const STRIPE_URL = 'https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01'
 
+const SHEETS_OPTIN_URL = 'https://script.google.com/macros/s/AKfycbwSJuhDlU4DTymYPnPviN0T4K2WHba6Xn-8xcMSb1I39SJBqPJkYZkFQntMSkOXg1ooXA/exec'
+
 function Row({ label, value }) {
   return (
     <div className="recap-row">
@@ -18,7 +20,7 @@ function Row({ label, value }) {
   )
 }
 
-export default function Step7Recap({ data, onPrev }) {
+export default function Step7Recap({ data, update, onPrev }) {
   const paid = new URLSearchParams(window.location.search).get('paid') === 'true'
   const [status, setStatus] = useState(paid ? 'generating' : 'unpaid') // unpaid | generating | loading | success | error
   const [downloadUrl, setDownloadUrl] = useState(null)
@@ -36,6 +38,23 @@ export default function Step7Recap({ data, onPrev }) {
       window.history.replaceState({}, '', window.location.pathname)
     }
   }, [])
+
+  async function handlePay() {
+    if (data.avis_optin) {
+      try {
+        await fetch(SHEETS_OPTIN_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: data.email, prenom: data.prenom, nom: data.nom }),
+        })
+      } catch (_) {
+        // on ne bloque pas le paiement si l'envoi échoue
+      }
+    }
+    if (typeof sa_event !== 'undefined') sa_event('stripe_click')
+    window.location.href = STRIPE_URL
+  }
 
   async function handleGenerate() {
     setStatus('loading')
@@ -166,13 +185,21 @@ export default function Step7Recap({ data, onPrev }) {
               <li>✓ Report sur 2042-C Pro</li>
               <li>✓ Téléchargement PDF immédiat</li>
             </ul>
-            <a
-              href={STRIPE_URL}
+            <button
               className="btn btn-primary btn-lg btn-full"
-              onClick={() => typeof sa_event !== 'undefined' && sa_event('stripe_click')}
+              onClick={handlePay}
             >
               Payer et générer mes documents →
-            </a>
+            </button>
+            <label className="optin-label" style={{ marginTop: '16px' }}>
+              <input
+                type="checkbox"
+                checked={data.avis_optin}
+                onChange={e => update({ avis_optin: e.target.checked })}
+                className="optin-checkbox"
+              />
+              J'accepte d'être contacté(e) par email par LMNP Simple pour donner mon avis sur le service.
+            </label>
             <p className="payment-note">
               Paiement sécurisé par Stripe. Vous serez redirigé vers cette page après paiement.
             </p>

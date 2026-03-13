@@ -8,6 +8,7 @@ export const INITIAL_STATE = {
     nom: '',
     email: '',
     annee_fiscale: String(currentYear - 1),
+    avis_optin: false,
 
     // Step 2 — Bien immobilier
     adresse_bien: '',
