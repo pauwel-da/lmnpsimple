@@ -31,7 +31,7 @@ export function validateStep2(data) {
 
 export function validateStep3(data) {
   const e = {}
-  if (!isPos(data.recettes_brutes)) e.recettes_brutes = 'Montant requis (> 0)'
+  if (data.recettes_brutes === '' || data.recettes_brutes === null || data.recettes_brutes === undefined || isNaN(parseFloat(data.recettes_brutes)) || parseFloat(data.recettes_brutes) < 0) e.recettes_brutes = 'Montant requis (≥ 0)'
   if (!data.debut_exercice) e.debut_exercice = 'Date de début requise'
   if (!data.fin_exercice) e.fin_exercice = 'Date de fin requise'
   else if (data.debut_exercice && data.fin_exercice <= data.debut_exercice)
