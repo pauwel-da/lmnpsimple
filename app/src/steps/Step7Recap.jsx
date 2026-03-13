@@ -185,13 +185,7 @@ export default function Step7Recap({ data, update, onPrev }) {
               <li>✓ Report sur 2042-C Pro</li>
               <li>✓ Téléchargement PDF immédiat</li>
             </ul>
-            <button
-              className="btn btn-primary btn-lg btn-full"
-              onClick={handlePay}
-            >
-              Payer et générer mes documents →
-            </button>
-            <label className="optin-label" style={{ marginTop: '16px' }}>
+            <label className="optin-label" style={{ marginBottom: '12px' }}>
               <input
                 type="checkbox"
                 checked={data.avis_optin}
@@ -200,6 +194,12 @@ export default function Step7Recap({ data, update, onPrev }) {
               />
               J'accepte d'être contacté(e) par email par LMNP Simple pour donner mon avis sur le service.
             </label>
+            <button
+              className="btn btn-primary btn-lg btn-full"
+              onClick={handlePay}
+            >
+              Payer et générer mes documents →
+            </button>
             <p className="payment-note">
               Paiement sécurisé par Stripe. Vous serez redirigé vers cette page après paiement.
             </p>
