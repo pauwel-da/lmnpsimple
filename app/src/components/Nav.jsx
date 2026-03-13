@@ -6,7 +6,7 @@ export default function Nav({ onReset }) {
           <img src={`${import.meta.env.BASE_URL}lmnpsimple.png`} alt="LMNP Simple" />
         </a>
         <button className="btn btn-danger" onClick={onReset}>
-          Réinitialiser
+          Réinitialiser ma déclaration
         </button>
       </div>
     </nav>
