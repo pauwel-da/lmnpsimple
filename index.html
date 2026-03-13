@@ -915,20 +915,19 @@
     <a class="logo" href="#">
       <img src="lmnpsimple.png" alt="LMNP Simple">
     </a>
-    <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" onclick="sa_event('stripe_click')" class="btn btn-primary">Rejoindre la bêta – 59&nbsp;€</a>
+    <a href="formulaire/" onclick="sa_event('start_form')" class="btn btn-primary">Commencer ma déclaration →</a>
   </div>
 </nav>
 
 <!-- ── HERO ─────────────────────────────────────── -->
 <section class="hero">
   <div class="container">
-    <div class="hero-badge">Disponible avant le 1er avril 2026</div>
+    <div class="hero-badge">Disponible maintenant</div>
     <h1>Votre déclaration LMNP simplifiée.</h1>
     <p>Fini les 300&nbsp;€ d'expert-comptable pour un cas standard. Saisissez vos données, obtenez vos documents fiscaux en quelques minutes — en totale autonomie.</p>
     <div class="hero-cta">
-      <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" onclick="sa_event('stripe_click')" class="btn btn-primary btn-xl">Rejoindre la bêta – 59&nbsp;€ →</a>
-      <button onclick="openNotify()" class="btn btn-ghost btn-xl">Être informé du lancement</button>
-      <span class="hero-note">50 places · Accès avant le 1er avril 2026 · Prix public <s>89&nbsp;€&nbsp;TTC</s> · Paiement unique TTC</span>
+      <a href="formulaire/" onclick="sa_event('start_form')" class="btn btn-primary btn-xl">Commencer ma déclaration →</a>
+      <span class="hero-note">59&nbsp;€&nbsp;TTC · Paiement unique · Pas d'abonnement</span>
     </div>
   </div>
 </section>
@@ -1239,15 +1238,15 @@
 <section class="pricing" id="pricing">
   <div class="container">
     <div class="section-eyebrow">Tarif</div>
-    <h2 class="section-title">50 places. Accès avant le 1er avril 2026.</h2>
-    <p class="section-sub" style="margin:0 auto;">Paiement unique pour l'exercice fiscal en cours. Accès garanti avant l'ouverture au public. Pas d'abonnement.</p>
+    <h2 class="section-title">Un prix unique. Accès immédiat.</h2>
+    <p class="section-sub" style="margin:0 auto;">Paiement à la fin du formulaire, avant la génération de vos documents. Pas d'abonnement.</p>
 
     <div class="pricing-single">
       <div class="pricing-card featured">
-        <div class="pricing-badge">Offre bêta · 50 places</div>
+        <div class="pricing-badge">Offre de lancement</div>
         <div class="pricing-amount"><sup>€</sup>59 <span class="pricing-ttc">TTC</span></div>
         <div class="pricing-was">au lieu de <s>89&nbsp;€ TTC</s> <span class="pricing-saving">−30&nbsp;€</span></div>
-        <div class="pricing-period">Paiement unique · accès avant le 1er avril 2026</div>
+        <div class="pricing-period">Paiement unique · accès immédiat</div>
         <ul class="pricing-features">
           <li><span class="chk">✓</span> Génération des documents fiscaux</li>
           <li><span class="chk">✓</span> Formulaires 2031 + annexes 2033</li>
@@ -1256,31 +1255,15 @@
           <li><span class="chk">✓</span> Téléchargement PDF des documents</li>
           <li><span class="chk">✓</span> Accès pendant 12 mois à votre dossier</li>
         </ul>
-        <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" onclick="sa_event('stripe_click')" class="btn btn-primary btn-lg btn-full">Rejoindre la bêta – 59&nbsp;€ TTC</a>
-        <button onclick="openNotify()" class="btn btn-ghost btn-lg btn-full" style="margin-top:10px;">Être informé du lancement</button>
+        <a href="formulaire/" onclick="sa_event('start_form')" class="btn btn-primary btn-lg btn-full">Commencer ma déclaration →</a>
       </div>
     </div>
 
-    <p class="pricing-note">Vous êtes débité maintenant. Accès garanti avant le 1er avril 2026.<br>Ce service ne constitue pas un conseil fiscal. Vérifiez que votre situation correspond au périmètre avant achat.</p>
+    <p class="pricing-note">Le paiement s'effectue à la fin du formulaire, avant la génération de vos documents.<br>Ce service ne constitue pas un conseil fiscal. Vérifiez que votre situation correspond au périmètre avant achat.</p>
   </div>
 </section>
 
 <!-- ── MODAL NOTIFICATION ─────────────────────────── -->
-<div id="notify-modal" class="modal-overlay">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeNotify()" aria-label="Fermer">&times;</button>
-    <h3>Être informé du lancement</h3>
-    <p>Laissez votre email, nous vous préviendrons dès que le service est disponible — sans spam.</p>
-    <form id="notify-form" onsubmit="submitNotify(event)">
-      <input type="email" id="notify-email" class="notify-input" placeholder="votre@email.fr" required>
-      <button type="submit" class="btn btn-primary btn-lg btn-full">Me prévenir au lancement</button>
-    </form>
-    <div id="notify-success" class="notify-success" hidden>
-      <div class="notify-check">✓</div>
-      <p>C'est noté&nbsp;! Nous vous contacterons à l'ouverture.</p>
-    </div>
-  </div>
-</div>
 
 <!-- ── FOOTER ────────────────────────────────────── -->
 <footer>
@@ -1295,36 +1278,6 @@
 </footer>
 
 <script>
-  /* ── NOTIFY MODAL ── */
-  function openNotify() {
-    document.getElementById('notify-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNotify() {
-    document.getElementById('notify-modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function submitNotify(e) {
-    e.preventDefault();
-    const email = document.getElementById('notify-email').value;
-
-    // Affiche le succès immédiatement sans attendre la réponse
-    document.getElementById('notify-form').hidden = true;
-    document.getElementById('notify-success').hidden = false;
-
-    // Envoi en arrière-plan
-    fetch('https://script.google.com/macros/s/AKfycbwSJuhDlU4DTymYPnPviN0T4K2WHba6Xn-8xcMSb1I39SJBqPJkYZkFQntMSkOXg1ooXA/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('notify-modal').addEventListener('click', function(e) {
-      if (e.target === this) closeNotify();
-    });
-  });
 
   /* ── QUALIFICATION FORM ── */
   const QQ = [
@@ -1341,7 +1294,7 @@
       opts: [
         { label: 'Oui, 1 seul bien', pass: true },
         { label: 'Non, plusieurs biens', pass: false,
-          reason: 'La version bêta est limitée à 1 bien. La prise en charge de plusieurs biens sera étudiée pour une prochaine version.' }
+          reason: 'Ce service est actuellement limité à 1 bien. La prise en charge de plusieurs biens sera étudiée pour une prochaine version.' }
       ]
     },
     {
@@ -1412,8 +1365,8 @@
     el.innerHTML = ok
       ? `<div class="qual-result-ok">
            <h3>✓ Ce service est fait pour vous.</h3>
-           <p>Votre situation correspond au périmètre de LMNP Simple. Rejoignez la bêta et accédez au service avant le 1er avril 2026.</p>
-           <a href="https://buy.stripe.com/aFa9AT8io60Yftofsn7kc01" onclick="sa_event('stripe_click')" class="btn btn-primary btn-lg">Rejoindre la bêta – 59&nbsp;€ →</a>
+           <p>Votre situation correspond au périmètre de LMNP Simple. Vous pouvez commencer votre déclaration maintenant.</p>
+           <a href="formulaire/" onclick="sa_event('start_form')" class="btn btn-primary btn-lg">Commencer ma déclaration →</a>
            <button class="qual-restart" onclick="restartQual()">Recommencer le questionnaire</button>
          </div>`
       : `<div class="qual-result-no">
